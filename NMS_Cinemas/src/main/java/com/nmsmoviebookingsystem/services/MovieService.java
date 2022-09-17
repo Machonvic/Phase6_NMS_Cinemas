@@ -3,7 +3,6 @@ package com.nmsmoviebookingsystem.services;
 import java.io.ByteArrayOutputStream;
 import org.springframework.data.domain.Sort;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.zip.DataFormatException;

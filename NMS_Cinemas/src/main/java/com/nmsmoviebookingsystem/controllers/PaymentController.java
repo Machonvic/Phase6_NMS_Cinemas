@@ -2,8 +2,6 @@ package com.nmsmoviebookingsystem.controllers;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
-
 import javax.servlet.ServletException;
 import javax.validation.Valid;
 
@@ -18,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nmsmoviebookingsystem.model.Genre;
 import com.nmsmoviebookingsystem.model.Order;
 import com.nmsmoviebookingsystem.model.OrderDetail;
 import com.nmsmoviebookingsystem.model.PaymentPOJO;
