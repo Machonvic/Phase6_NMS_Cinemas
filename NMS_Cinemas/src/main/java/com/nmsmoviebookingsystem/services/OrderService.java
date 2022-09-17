@@ -7,7 +7,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.nmsmoviebookingsystem.model.Order;
-import com.nmsmoviebookingsystem.model.PaymentPOJO;
 import com.nmsmoviebookingsystem.repository.OrderRepository;
 
 @Service

@@ -28,9 +28,9 @@ import com.paypal.base.rest.PayPalRESTException;
 @Service
 public class PaymentServices {
 	
-		
+		/*Add your client_id and client_secret to test paypal payment system*/
 	private static final String CLIENT_ID = "ARvSZTJcaC3nEd46nUSW-JfgEfOHL2BNLcRUeSWEMgmMRD7UYHzdC789ic3_NN15-NwCPBqHltSv_nJY";
-	private static final String CLIENT_SECRET = "ELctTZFc_0G7NmF3aAK3nJubC_wMNl-6SQyBQ1CX0XhsqDOy5K33Sz6rI-ef4O6gkOp7UOs0mvE9a6V8";
+	private static final String CLIENT_SECRET = "";
 	private static final String MODE = "sandbox";
 	
 
