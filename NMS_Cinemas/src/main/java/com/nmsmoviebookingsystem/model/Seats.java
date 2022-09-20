@@ -18,7 +18,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 @Table(name = "seat_nms",uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"seatnumber"})
+        @UniqueConstraint(columnNames = {"seatnumber","showId"})
 })
 public class Seats {
 	
