@@ -1,0 +1,86 @@
+warning: LF will be replaced by CRLF in NMS_Cinemas/src/main/resources/application.properties.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in NMS_Cinemas_App/src/app/_services/user.service.ts.
+The file will have its original line endings in your working directory
+[1mdiff --cc NMS_Cinemas/src/main/java/com/nmsmoviebookingsystem/model/Seats.java[m
+[1mindex 7e0097c,94d22b2..0000000[m
+[1m--- a/NMS_Cinemas/src/main/java/com/nmsmoviebookingsystem/model/Seats.java[m
+[1m+++ b/NMS_Cinemas/src/main/java/com/nmsmoviebookingsystem/model/Seats.java[m
+[1mdiff --git a/NMS_Cinemas/src/main/java/com/nmsmoviebookingsystem/controllers/AuthController.java b/NMS_Cinemas/src/main/java/com/nmsmoviebookingsystem/controllers/AuthController.java[m
+[1mindex fd27be3..694ebed 100644[m
+[1m--- a/NMS_Cinemas/src/main/java/com/nmsmoviebookingsystem/controllers/AuthController.java[m
+[1m+++ b/NMS_Cinemas/src/main/java/com/nmsmoviebookingsystem/controllers/AuthController.java[m
+[36m@@ -23,9 +23,11 @@[m [mimport org.springframework.web.bind.annotation.PostMapping;[m
+ import org.springframework.web.bind.annotation.PutMapping;[m
+ import org.springframework.web.bind.annotation.RequestBody;[m
+ import org.springframework.web.bind.annotation.RequestMapping;[m
+[32m+[m[32mimport org.springframework.web.bind.annotation.RequestParam;[m
+ import org.springframework.web.bind.annotation.RestController;[m
+ [m
+ import com.nmsmoviebookingsystem.model.ERole;[m
+[32m+[m[32mimport com.nmsmoviebookingsystem.model.KeyEncrypt;[m
+ import com.nmsmoviebookingsystem.model.Role;[m
+ import com.nmsmoviebookingsystem.model.User;[m
+ import com.nmsmoviebookingsystem.model.UserData;[m
+[36m@@ -40,6 +42,7 @@[m [mimport com.nmsmoviebookingsystem.response.MessageResponse;[m
+ import com.nmsmoviebookingsystem.response.UserInfoResponse;[m
+ import com.nmsmoviebookingsystem.security.JwtUtils;[m
+ import com.nmsmoviebookingsystem.services.ChangePasswordService;[m
+[32m+[m[32mimport com.nmsmoviebookingsystem.services.KeyEncryptService;[m
+ import com.nmsmoviebookingsystem.services.UserDetailsImpl;[m
+ [m
+ [m
+[36m@@ -69,6 +72,9 @@[m [mpublic class AuthController {[m
+   [m
+  @Autowired[m
+  ChangePasswordService changePasswordService;[m
+[32m+[m[41m [m
+[32m+[m[32m @Autowired[m
+[32m+[m[32m KeyEncryptService  keyEncryptService ;[m
+ [m
+   @PostMapping("/signin")[m
+   //@PreAuthorize("hasRole('ROLE_ADMIN')")[m
+[36m@@ -180,7 +186,14 @@[m [mpublic class AuthController {[m
+ 	  [m
+       return ResponseEntity.ok(new MessageResponse(changePasswordService.changePassword(passwordResetRequest.getUsername(), passwordResetRequest.getPassword())));[m
+ [m
+[31m-	}[m
+[32m+[m	[32m}[m[41m  [m
+[32m+[m[32m  /*[m
+[32m+[m[32m  @PostMapping("/keyencrypt")[m
+[32m+[m[32m  public ResponseEntity<?> keyEncryptMethod() {[m[41m	  [m
+[32m+[m	[32m   //String name=keyEncrypt.getCLIENT_SECRET();[m
+[32m+[m	[32m  KeyEncrypt key1=keyEncryptService.keyEncrypts();[m
+[32m+[m[32m    return ResponseEntity.ok(key1);[m
+[32m+[m[32m  }*/[m
+   [m
+   @GetMapping("/userDetails/{id}")[m
+ 	private ResponseEntity<?> getUserData(@PathVariable("id")Long id) {[m
+[1mdiff --git a/NMS_Cinemas/src/main/java/com/nmsmoviebookingsystem/services/PaymentServices.java b/NMS_Cinemas/src/main/java/com/nmsmoviebookingsystem/services/PaymentServices.java[m
+[1mindex 3e07e40..7448cee 100644[m
+[1m--- a/NMS_Cinemas/src/main/java/com/nmsmoviebookingsystem/services/PaymentServices.java[m
+[1m+++ b/NMS_Cinemas/src/main/java/com/nmsmoviebookingsystem/services/PaymentServices.java[m
+[36m@@ -28,8 +28,8 @@[m [mimport com.paypal.base.rest.PayPalRESTException;[m
+ @Service[m
+ public class PaymentServices {[m
+ 	[m
+[31m-		/*Add your client_id and client_secret to test paypal payment system*/[m
+[31m-	private static final String CLIENT_ID = "ARvSZTJcaC3nEd46nUSW-JfgEfOHL2BNLcRUeSWEMgmMRD7UYHzdC789ic3_NN15-NwCPBqHltSv_nJY";[m
+[32m+[m[41m		[m
+[32m+[m	[32mprivate static final String CLIENT_ID = "";[m
+ 	private static final String CLIENT_SECRET = "";[m
+ 	private static final String MODE = "sandbox";[m
+ 	[m
+[1mdiff --git a/NMS_Cinemas_App/src/app/_services/user.service.ts b/NMS_Cinemas_App/src/app/_services/user.service.ts[m
+[1mindex 395c116..4878be8 100644[m
+[1m--- a/NMS_Cinemas_App/src/app/_services/user.service.ts[m
+[1m+++ b/NMS_Cinemas_App/src/app/_services/user.service.ts[m
+[36m@@ -8,7 +8,7 @@[m [mimport { User } from '../_models/user.model';[m
+ })[m
+ export class UserService {[m
+ [m
+[31m-  apiUrl: string = 'http://localhost:8080/api/auth/';[m
+[32m+[m[32m  apiUrl: string = 'http://localhost:8081/api/auth/';[m
+   headers = new HttpHeaders().set('Content-Type', 'application/json');[m
+ [m
+   results:any;[m

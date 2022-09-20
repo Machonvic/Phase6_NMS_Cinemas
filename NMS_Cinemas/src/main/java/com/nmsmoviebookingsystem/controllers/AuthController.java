@@ -70,6 +70,7 @@ public class AuthController {
  @Autowired
  ChangePasswordService changePasswordService;
 
+
   @PostMapping("/signin")
   //@PreAuthorize("hasRole('ROLE_ADMIN')")
   public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
@@ -180,7 +181,7 @@ public class AuthController {
 	  
       return ResponseEntity.ok(new MessageResponse(changePasswordService.changePassword(passwordResetRequest.getUsername(), passwordResetRequest.getPassword())));
 
-	}
+	}  
   
   @GetMapping("/userDetails/{id}")
 	private ResponseEntity<?> getUserData(@PathVariable("id")Long id) {
